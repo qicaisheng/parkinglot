@@ -2,22 +2,34 @@ package com.qicaisheng.parkinglot;
 
 import java.util.List;
 
-public class ParkingManager extends ParkingAgent {
+public class ParkingManager {
     
     private List<ParkingBoy> managedParkingBoys;
     
+    private List<ParkingLot> managedParkingLots;
+    
     public ParkingManager(List<ParkingLot> parkingLots) {
-        super(parkingLots);
-    }
-
-    @Override
-    ParkingLot selectParkingLot() {
-        return managedParkingLots.stream().filter(parkingLot -> !parkingLot.isFull()).findFirst().orElse(null);
+        managedParkingLots = parkingLots;
     }
 
     public void manager(List<ParkingBoy> parkingBoys) {
         managedParkingBoys = parkingBoys;
     }
+
+    public void park(Car car, ParkingLot parkingLot) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
+        if (!managedParkingLots.contains(parkingLot)) {
+            throw new WithoutManagedTheParkingBoyException();
+        }
+        parkingLot.park(car);
+    }
+
+    public Car pick(Car car, ParkingLot parkingLot) throws ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
+        if (!managedParkingLots.contains(parkingLot)) {
+            throw new WithoutManagedTheParkingBoyException();
+        }
+        return parkingLot.pick(car);
+    }
+
 
     public void park(Car car, ParkingBoy parkingBoy) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
         if (!managedParkingBoys.contains(parkingBoy)) {

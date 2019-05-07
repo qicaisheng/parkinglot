@@ -57,4 +57,14 @@ public class ParkingBoyTest {
         parkingBoy.pick(car);
     }
 
+    @Test(expected = ParkingLotFullException.class)
+    public void should_not_be_parked_from_parking_boy_when_the_managed_parking_lot_is_full() throws ParkingLotFullException {
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        parkingBoy.park(car);
+
+        Car cannotBeParkedCar = new Car();
+        parkingBoy.park(cannotBeParkedCar);
+    }
 }

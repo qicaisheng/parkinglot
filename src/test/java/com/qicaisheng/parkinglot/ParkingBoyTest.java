@@ -5,7 +5,6 @@ import com.qicaishemg.parkinglot.ParkingLot;
 import com.qicaishemg.parkinglot.ParkingLotFullException;
 import com.qicaishemg.parkinglot.ParkingLotWithoutTheCar;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -72,15 +71,19 @@ public class ParkingBoyTest {
     }
 
     @Test
-    @Ignore
-    public void should_be_picked_from_two_parking_lots_when_parking_boy_park_two_cars_in_order() throws ParkingLotFullException {
+    public void should_be_picked_from_two_parking_lots_when_parking_boy_park_two_cars_in_order() throws ParkingLotFullException, ParkingLotWithoutTheCar {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
-        Car car = new Car();
-        parkingBoy.park(car);
+        Car car1 = new Car();
+        parkingBoy.park(car1);
+        Car car2 = new Car();
+        parkingBoy.park(car2);
 
-        Car cannotBeParkedCar = new Car();
-        parkingBoy.park(cannotBeParkedCar);
+        Car pickedCarFromParkingLot1 = parkingLot1.pick(car1);
+        Car pickedCarFromParkingLot2 = parkingLot2.pick(car2);
+        
+        Assert.assertEquals(car1, pickedCarFromParkingLot1);
+        Assert.assertEquals(car2, pickedCarFromParkingLot2);
     }
 }

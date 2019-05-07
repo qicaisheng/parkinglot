@@ -23,12 +23,20 @@ public class ParkingBoy {
     }
 
     public Car pick(Car car) throws ParkingLotWithoutTheCar {
-        return managedParkingLots.get(0).pick(car);
+        ParkingLot parkingLot = selectParkingLotWithTheCar(car);
+        if (parkingLot == null) {
+            throw new ParkingLotWithoutTheCar();
+        }
+        return parkingLot.pick(car);
     }
     
     private ParkingLot selectParkingLot() {
         ParkingLot parkingLot = managedParkingLots.get(parkingLotIndex);
-        parkingLotIndex = (parkingLotIndex + 1) / (managedParkingLots.size() + 1);
+        parkingLotIndex = (parkingLotIndex + 1) % managedParkingLots.size();
         return parkingLot;
+    }
+    
+    private ParkingLot selectParkingLotWithTheCar(Car car) {
+        return managedParkingLots.stream().filter(parkingLot -> parkingLot.haveTheCar(car)).findFirst().orElse(null);
     }
 }

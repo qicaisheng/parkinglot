@@ -27,6 +27,10 @@ public class ParkingLot {
         parkedCar.remove(car);
         return car;
     }
+    
+    public boolean haveTheCar(Car car) {
+        return parkedCar.contains(car);
+    }
 
     public boolean isFull() {
         return parkedCar.size() >= capacity;

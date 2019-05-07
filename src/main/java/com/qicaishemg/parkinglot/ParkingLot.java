@@ -1,4 +1,4 @@
-package com.qicaisheng.parkinglot;
+package com.qicaishemg.parkinglot;
 
 import java.util.ArrayList;
 import java.util.List;

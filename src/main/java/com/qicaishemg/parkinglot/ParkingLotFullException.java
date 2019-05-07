@@ -1,4 +1,4 @@
-package com.qicaisheng.parkinglot;
+package com.qicaishemg.parkinglot;
 
 public class ParkingLotFullException extends Throwable {
 }

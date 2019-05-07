@@ -18,4 +18,18 @@ public class ParkingManagerTest {
 
         Assert.assertEquals(car, parkingManager.pick(car));
     }
+
+    @Test
+    public void should_be_able_to_let_managed_parking_boy_park_and_pick_car() throws ParkingLotFullException, ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(2);
+        ParkingManager parkingManager = new ParkingManager(Arrays.asList(parkingLot1, parkingLot2));
+        ParkingBoy parkingBoy = new ParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
+        parkingManager.manager(Arrays.asList(parkingBoy));
+        Car car = new Car();
+
+        parkingManager.park(car, parkingBoy);
+        
+        Assert.assertEquals(car, parkingManager.pick(car, parkingBoy));
+    }
 }

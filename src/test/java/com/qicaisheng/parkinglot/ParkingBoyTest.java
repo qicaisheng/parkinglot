@@ -33,4 +33,16 @@ public class ParkingBoyTest {
         Assert.assertEquals(car, pickedCar);
     }
 
+    @Test(expected = ParkingLotWithoutTheCar.class)
+    public void should_not_be_picked_up_from_parking_boy_when_the_parked_car_has_been_picked_from_managed_parking_lot() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+        ParkingLot parkingLot = new ParkingLot(2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        parkingBoy.park(car);
+
+        parkingLot.pick(car);
+
+        parkingBoy.pick(car);
+    }
+
 }

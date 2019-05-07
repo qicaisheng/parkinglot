@@ -39,4 +39,9 @@ public class ParkingLot {
     public int availableSpaces() {
         return capacity - parkedCar.size();
     }
+
+    public int availableSpacesRate() {
+        return (capacity - parkedCar.size()) / capacity;
+    }
+
 }

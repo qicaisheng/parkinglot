@@ -45,4 +45,16 @@ public class ParkingBoyTest {
         parkingBoy.pick(car);
     }
 
+    @Test(expected = ParkingLotWithoutTheCar.class)
+    public void should_not_be_picked_up_from_parking_boy_again_when_the_parked_car_has_been_picked_from_parking_boy() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        parkingBoy.park(car);
+
+        parkingBoy.pick(car);
+
+        parkingBoy.pick(car);
+    }
+
 }

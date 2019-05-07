@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ParkingManager {
     
-    private List<ParkingBoy> managedParkingBoys;
+    private List<ParkingAgent> managedParkingBoys;
     
     private List<ParkingLot> managedParkingLots;
     
@@ -12,7 +12,7 @@ public class ParkingManager {
         managedParkingLots = parkingLots;
     }
 
-    public void manager(List<ParkingBoy> parkingBoys) {
+    public void manager(List<ParkingAgent> parkingBoys) {
         managedParkingBoys = parkingBoys;
     }
 
@@ -31,14 +31,14 @@ public class ParkingManager {
     }
 
 
-    public void park(Car car, ParkingBoy parkingBoy) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
+    public void park(Car car, ParkingAgent parkingBoy) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
         if (!managedParkingBoys.contains(parkingBoy)) {
             throw new WithoutManagedTheParkingBoyException();
         }
         parkingBoy.park(car);
     }
 
-    public Car pick(Car car, ParkingBoy parkingBoy) throws ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
+    public Car pick(Car car, ParkingAgent parkingBoy) throws ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
         if (!managedParkingBoys.contains(parkingBoy)) {
             throw new WithoutManagedTheParkingBoyException();
         }

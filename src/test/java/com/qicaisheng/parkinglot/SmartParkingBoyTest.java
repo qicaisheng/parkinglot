@@ -1,7 +1,6 @@
 package com.qicaisheng.parkinglot;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -68,7 +67,6 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    @Ignore
     public void should_be_picked_from_parking_lot_with_max_available_space_when_smart_parking_boy_park_the_car() throws ParkingLotFullException, ParkingLotWithoutTheCar {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);

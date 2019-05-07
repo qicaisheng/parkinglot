@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ParkingBoy {
     
-    private List<ParkingLot> managedParkingLots;
+    protected List<ParkingLot> managedParkingLots;
     
     private int parkingLotIndex;
     
@@ -25,7 +25,7 @@ public class ParkingBoy {
         return parkingLot.pick(car);
     }
     
-    private ParkingLot selectParkingLot() {
+    public ParkingLot selectParkingLot() {
         ParkingLot parkingLot = managedParkingLots.get(parkingLotIndex);
         parkingLotIndex = (parkingLotIndex + 1) % managedParkingLots.size();
         return parkingLot;

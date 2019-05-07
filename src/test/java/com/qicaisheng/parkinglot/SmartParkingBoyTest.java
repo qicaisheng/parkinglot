@@ -10,7 +10,7 @@ public class SmartParkingBoyTest {
     @Test
     public void should_be_picked_up_from_managed_parking_lot_when_smart_park_boy_park_card() throws ParkingLotWithoutTheCar, ParkingLotFullException {
         ParkingLot parkingLot = new ParkingLot(1);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
         
         parkingBoy.park(car);
@@ -22,7 +22,7 @@ public class SmartParkingBoyTest {
     @Test
     public void should_be_picked_up_from_parking_boy_when_smart_park_boy_park_card() throws ParkingLotWithoutTheCar, ParkingLotFullException {
         ParkingLot parkingLot = new ParkingLot(2);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
 
         parkingBoy.park(car);
@@ -34,7 +34,7 @@ public class SmartParkingBoyTest {
     @Test(expected = ParkingLotWithoutTheCar.class)
     public void should_not_be_picked_up_from_parking_boy_when_the_parked_car_has_been_picked_from_managed_parking_lot() throws ParkingLotWithoutTheCar, ParkingLotFullException {
         ParkingLot parkingLot = new ParkingLot(2);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
         parkingBoy.park(car);
 
@@ -46,7 +46,7 @@ public class SmartParkingBoyTest {
     @Test(expected = ParkingLotWithoutTheCar.class)
     public void should_not_be_picked_up_from_parking_boy_again_when_the_parked_car_has_been_picked_from_parking_boy() throws ParkingLotWithoutTheCar, ParkingLotFullException {
         ParkingLot parkingLot = new ParkingLot(1);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
         parkingBoy.park(car);
 
@@ -58,7 +58,7 @@ public class SmartParkingBoyTest {
     @Test(expected = ParkingLotFullException.class)
     public void should_not_be_parked_from_smart_parking_boy_when_the_managed_parking_lot_is_full() throws ParkingLotFullException {
         ParkingLot parkingLot = new ParkingLot(1);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
         parkingBoy.park(car);
 
@@ -70,7 +70,7 @@ public class SmartParkingBoyTest {
     public void should_be_picked_from_parking_lot_with_max_available_space_when_smart_parking_boy_park_the_car() throws ParkingLotFullException, ParkingLotWithoutTheCar {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
+        ParkingAgent parkingBoy = new SmartParkingBoy(Arrays.asList(parkingLot1, parkingLot2));
         Car car = new Car();
 
         parkingBoy.park(car);

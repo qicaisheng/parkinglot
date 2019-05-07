@@ -53,3 +53,11 @@ as the ParkingBoy, I can park the car to multiple parking lots in order
 * when parking boy park two car
 * then the cars can be picked from the second parking lot
 
+
+## lesson 3
+
+### Tasking
+* give one smart parking boy manage two parking lot, first with one available space, second with two available space.
+* when smart parking boy park the car
+* then the car can be picked from second parking lot
+

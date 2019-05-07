@@ -1,9 +1,5 @@
 package com.qicaisheng.parkinglot;
 
-import com.qicaishemg.parkinglot.Car;
-import com.qicaishemg.parkinglot.ParkingLot;
-import com.qicaishemg.parkinglot.ParkingLotFullException;
-import com.qicaishemg.parkinglot.ParkingLotWithoutTheCar;
 import org.junit.Assert;
 import org.junit.Test;
 

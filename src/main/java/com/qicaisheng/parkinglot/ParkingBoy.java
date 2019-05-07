@@ -1,10 +1,5 @@
 package com.qicaisheng.parkinglot;
 
-import com.qicaishemg.parkinglot.Car;
-import com.qicaishemg.parkinglot.ParkingLot;
-import com.qicaishemg.parkinglot.ParkingLotFullException;
-import com.qicaishemg.parkinglot.ParkingLotWithoutTheCar;
-
 import java.util.List;
 
 public class ParkingBoy {

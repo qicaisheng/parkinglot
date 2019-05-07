@@ -16,8 +16,8 @@ public class ParkingLotTest {
         
         parkingLot.park(car);
         
-        boolean canBePick = parkingLot.pick(car);
-        Assert.assertTrue(canBePick);
+        Car pickedCar = parkingLot.pick(car);
+        Assert.assertEquals(car, pickedCar);
     }
 
     @Test(expected = ParkingLotWithoutTheCar.class)

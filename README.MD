@@ -6,7 +6,7 @@ park car and pick up car from parking lot
 ### Tasking
 * give one car and empty parking lot, 
 * when park the car to the parking lot, 
-* then the car can be picked from parking lot.
+* then the car can be picked from parking lot, and the car is same with parked car.
 
 
 * give one car parking in the parking lot, 

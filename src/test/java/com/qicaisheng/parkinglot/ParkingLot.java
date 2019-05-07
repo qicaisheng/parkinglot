@@ -21,10 +21,10 @@ public class ParkingLot {
     }
 
     public boolean pick(Car car) throws ParkingLotWithoutTheCar {
-        if (parkedCar.contains(car)) {
-            return parkedCar.remove(car);
+        if (!parkedCar.contains(car)) {
+            throw new ParkingLotWithoutTheCar();
         }
-        throw new ParkingLotWithoutTheCar();
+        return parkedCar.remove(car);
     }
 
     public boolean isFull() {

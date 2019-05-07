@@ -24,8 +24,7 @@ public class ParkingLotTest {
 
         parkingLot.pick(car);
         
-        boolean canBePick = parkingLot.pick(car);
-        Assert.assertFalse(canBePick);
+        parkingLot.pick(car);
     }
 
     @Test

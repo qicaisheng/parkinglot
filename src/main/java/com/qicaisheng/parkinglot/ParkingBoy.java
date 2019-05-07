@@ -11,15 +11,21 @@ public class ParkingBoy {
     
     private List<ParkingLot> managedParkingLots;
     
+    private ParkingLot lastParkingLot;
+    
     public ParkingBoy(List<ParkingLot> parkingLots) {
         this.managedParkingLots = parkingLots;
     }
 
     public void park(Car car) throws ParkingLotFullException {
-        managedParkingLots.get(0).park(car);
+        selectParkingLot().park(car);
     }
 
     public Car pick(Car car) throws ParkingLotWithoutTheCar {
         return managedParkingLots.get(0).pick(car);
+    }
+    
+    private ParkingLot selectParkingLot() {
+        return managedParkingLots.get(0);
     }
 }

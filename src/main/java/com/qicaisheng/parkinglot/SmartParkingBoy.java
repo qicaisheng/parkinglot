@@ -3,7 +3,7 @@ package com.qicaisheng.parkinglot;
 import java.util.Comparator;
 import java.util.List;
 
-public class SmartParkingBoy extends ParkingBoy{
+public class SmartParkingBoy extends ParkingAgent {
     
     public SmartParkingBoy(List<ParkingLot> parkingLots) {
         super(parkingLots);

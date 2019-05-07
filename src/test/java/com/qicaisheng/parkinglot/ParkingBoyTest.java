@@ -20,4 +20,17 @@ public class ParkingBoyTest {
         Car pickedCar = parkingLot.pick(car);
         Assert.assertEquals(car, pickedCar);
     }
+
+    @Test
+    public void should_be_picked_up_from_parking_boy_when_park_boy_park_card() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+        ParkingLot parkingLot = new ParkingLot(2);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+
+        parkingBoy.park(car);
+
+        Car pickedCar = parkingBoy.pick(car);
+        Assert.assertEquals(car, pickedCar);
+    }
+
 }

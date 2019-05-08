@@ -1,10 +1,11 @@
 package com.qicaisheng.parkinglot;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ParkingManager {
     
-    private List<ParkingAgent> managedParkingBoys;
+    private List<ParkingAgent> managedParkingBoys = new ArrayList<>();
     
     private List<ParkingLot> managedParkingLots;
     
@@ -43,5 +44,34 @@ public class ParkingManager {
             throw new WithoutManagedTheParkingBoyException();
         }
         return parkingBoy.pick(car);
+    }
+    
+    public int availableParkingSpaces() {
+        return allManagedParkingLots().stream().mapToInt(ParkingLot::availableSpaces).sum();
+    }
+    
+    public int parkingCapacity() {
+        return allManagedParkingLots().stream().mapToInt(ParkingLot::getCapacity).sum();
+    }
+    
+    public String report() {
+        String reportSelf = "M " + availableParkingSpaces() + " " + parkingCapacity() + "\n";
+        String reportSelfManagedParkingLots = managedParkingLots.stream().map(parkingLot -> "\t" + parkingLot.report()).collect(Collectors.joining());
+        return reportSelf + reportSelfManagedParkingLots;
+    }
+    
+    private List<ParkingLot> allManagedParkingLots() {
+        List<ParkingLot> parkingLotsMangedByParkingBoys = managedParkingBoys
+                .stream()
+                .map(parkingAgent -> parkingAgent.managedParkingLots)
+                .flatMap(Collection::stream)
+                .distinct()
+                .collect(Collectors.toList());
+
+        Set<ParkingLot> parkingLots = new HashSet<>();
+        parkingLots.addAll(managedParkingLots);
+        parkingLots.addAll(parkingLotsMangedByParkingBoys);
+        
+        return new ArrayList<>(parkingLots);
     }
 }

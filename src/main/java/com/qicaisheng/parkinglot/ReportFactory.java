@@ -10,4 +10,7 @@ public class ReportFactory {
         return reportSelf + reportMangedParkingLots;
     }
 
+    public static String report(ParkingLot parkingLot) {
+        return "P " + parkingLot.availableSpaces() + " " + parkingLot.getCapacity() + "\n";
+    }
 }

@@ -48,7 +48,4 @@ public class ParkingLot {
         return (capacity - parkedCar.size()) / capacity;
     }
 
-    public String report() {
-        return "P " + availableSpaces() + " " + getCapacity() + "\n";
-    }
 }

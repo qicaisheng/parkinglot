@@ -6,7 +6,7 @@ public class ReportFactory {
 
     public static String report(ParkingAgent parkingAgent) {
         String reportSelf = "B " + parkingAgent.availableParkingSpaces() + " " + parkingAgent.parkingCapacity() + "\n";
-        String reportMangedParkingLots = parkingAgent.managedParkingLots.stream().map(parkingLot -> "\t\t" + report(parkingLot)).collect(Collectors.joining());
+        String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> "\t\t" + report(parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;
     }
 

@@ -3,7 +3,11 @@ package com.qicaisheng.parkinglot;
 import java.util.List;
 
 public abstract class ParkingAgent {
-    
+
+    public List<ParkingLot> getManagedParkingLots() {
+        return managedParkingLots;
+    }
+
     protected List<ParkingLot> managedParkingLots;
     
     public ParkingAgent(List<ParkingLot> parkingLots) {

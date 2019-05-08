@@ -13,4 +13,12 @@ public class ReportFactory {
     public static String report(ParkingLot parkingLot) {
         return "P " + parkingLot.availableSpaces() + " " + parkingLot.getCapacity() + "\n";
     }
+
+    public static String report(ParkingManager parkingManager) {
+        String reportSelf = "M " + parkingManager.availableParkingSpaces() + " " + parkingManager.parkingCapacity() + "\n";
+        String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> "\t" + report(parkingLot)).collect(Collectors.joining());
+        String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "\t" + report(parkingAgent)).collect(Collectors.joining());
+        
+        return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
+    }
 }

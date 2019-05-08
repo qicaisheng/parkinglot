@@ -6,7 +6,15 @@ import java.util.stream.Collectors;
 public class ParkingManager {
     
     private List<ParkingAgent> managedParkingBoys = new ArrayList<>();
-    
+
+    public List<ParkingAgent> getManagedParkingBoys() {
+        return managedParkingBoys;
+    }
+
+    public List<ParkingLot> getManagedParkingLots() {
+        return managedParkingLots;
+    }
+
     private List<ParkingLot> managedParkingLots;
     
     public ParkingManager(List<ParkingLot> parkingLots) {
@@ -53,15 +61,7 @@ public class ParkingManager {
     public int parkingCapacity() {
         return allManagedParkingLots().stream().mapToInt(ParkingLot::getCapacity).sum();
     }
-    
-    public String report() {
-        String reportSelf = "M " + availableParkingSpaces() + " " + parkingCapacity() + "\n";
-        String reportSelfManagedParkingLots = managedParkingLots.stream().map(parkingLot -> "\t" + ReportFactory.report(parkingLot)).collect(Collectors.joining());
-        String reportSelfManagedParkingAgents = managedParkingBoys.stream().map(parkingAgent -> "\t" + ReportFactory.report(parkingAgent)).collect(Collectors.joining());
-        
-        return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
-    }
-    
+
     private List<ParkingLot> allManagedParkingLots() {
         List<ParkingLot> parkingLotsMangedByParkingBoys = managedParkingBoys
                 .stream()

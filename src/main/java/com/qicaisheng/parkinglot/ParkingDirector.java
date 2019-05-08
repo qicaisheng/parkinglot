@@ -9,6 +9,6 @@ public class ParkingDirector {
     }
 
     public String report() {
-        return managedParkingManager.report();
+        return ReportFactory.report(managedParkingManager);
     }
 }

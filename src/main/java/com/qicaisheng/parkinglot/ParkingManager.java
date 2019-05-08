@@ -57,7 +57,7 @@ public class ParkingManager {
     public String report() {
         String reportSelf = "M " + availableParkingSpaces() + " " + parkingCapacity() + "\n";
         String reportSelfManagedParkingLots = managedParkingLots.stream().map(parkingLot -> "\t" + parkingLot.report()).collect(Collectors.joining());
-        String reportSelfManagedParkingAgents = managedParkingBoys.stream().map(parkingAgent -> "\t" + parkingAgent.report()).collect(Collectors.joining());
+        String reportSelfManagedParkingAgents = managedParkingBoys.stream().map(parkingAgent -> "\t" + ReportFactory.report(parkingAgent)).collect(Collectors.joining());
         
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }

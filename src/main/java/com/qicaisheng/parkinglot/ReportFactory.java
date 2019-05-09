@@ -21,4 +21,23 @@ public class ReportFactory {
         
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
+
+    public static String getMarkdownReport(ParkingAgent parkingAgent) {
+        String reportSelf = "# B " + parkingAgent.availableParkingSpaces() + " " + parkingAgent.parkingCapacity() + "\n";
+        String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> "### " + report(parkingLot)).collect(Collectors.joining());
+        return reportSelf + reportMangedParkingLots;
+    }
+
+    public static String getMarkdownReport(ParkingLot parkingLot) {
+        return "# P " + parkingLot.availableSpaces() + " " + parkingLot.getCapacity() + "\n";
+    }
+
+    public static String getMarkdownReport(ParkingManager parkingManager) {
+        String reportSelf = "# M " + parkingManager.availableParkingSpaces() + " " + parkingManager.parkingCapacity() + "\n";
+        String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> "#" + getMarkdownReport(parkingLot)).collect(Collectors.joining());
+        String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "#" + getMarkdownReport(parkingAgent)).collect(Collectors.joining());
+
+        return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
+    }
+
 }

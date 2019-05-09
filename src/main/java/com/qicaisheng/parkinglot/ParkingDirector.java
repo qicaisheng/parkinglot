@@ -11,4 +11,9 @@ public class ParkingDirector {
     public String report() {
         return ReportFactory.report(managedParkingManager);
     }
+
+    public String getMarkdownReport() {
+        return ReportFactory.getMarkdownReport(managedParkingManager);
+    }
+
 }

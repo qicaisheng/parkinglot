@@ -8,8 +8,8 @@ public class ParkingDirector {
         managedParkingManager = parkingManager;
     }
 
-    public String report() {
-        return ReportFactory.report(managedParkingManager);
+    public String getTextReport() {
+        return ReportFactory.getTextReport(managedParkingManager);
     }
 
     public String getMarkdownReport() {

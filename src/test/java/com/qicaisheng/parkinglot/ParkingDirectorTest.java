@@ -16,7 +16,7 @@ public class ParkingDirectorTest {
         ParkingDirector parkingDirector = new ParkingDirector();
         parkingDirector.manage(parkingManager);
         
-        String report = parkingDirector.report();
+        String report = parkingDirector.getTextReport();
         
         Assert.assertEquals("M 2 3\n\tP 1 1\n\tP 1 2\n", report);
     }
@@ -35,7 +35,7 @@ public class ParkingDirectorTest {
         ParkingDirector parkingDirector = new ParkingDirector();
         parkingDirector.manage(parkingManager);
 
-        String report = parkingDirector.report();
+        String report = parkingDirector.getTextReport();
 
         Assert.assertEquals("M 1 3\n\tP 0 1\n\tP 1 2\n\tB 0 1\n\t\tP 0 1\n", report);
     }

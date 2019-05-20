@@ -11,6 +11,6 @@ public class SmartParkingBoy extends ParkingAgent {
     
     @Override
     public ParkingLot selectParkingLot() {
-        return this.managedParkingLots.stream().max(Comparator.comparing(ParkingLot::availableSpaces)).orElse(null);
+        return this.managedParkingLots.stream().max(Comparator.comparing(ParkingLot::getAvailableSpaces)).orElse(null);
     }
 }

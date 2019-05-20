@@ -13,6 +13,21 @@ public class ParkingLot implements ParkingResource {
         this.capacity = capacity;
     }
 
+    @Override
+    public String getShortName() {
+        return "P";
+    }
+
+    @Override
+    public int getAvailableSpaces() {
+        return capacity - parkedCar.size();
+    }
+
+    @Override
+    public int getCapacity() {
+        return capacity;
+    }
+
     public void park(Car car) throws ParkingLotFullException {
         if (isFull()) {
             throw new ParkingLotFullException();
@@ -28,31 +43,12 @@ public class ParkingLot implements ParkingResource {
         return car;
     }
 
-    @Override
-    public String getShortName() {
-        return "P";
-    }
-
-    @Override
-    public int getAvailableSpaces() {
-        return capacity - parkedCar.size();
-    }
-
     public boolean haveTheCar(Car car) {
         return parkedCar.contains(car);
     }
 
     public boolean isFull() {
         return parkedCar.size() >= capacity;
-    }
-    
-    public int availableSpaces() {
-        return capacity - parkedCar.size();
-    }
-    
-    @Override
-    public int getCapacity() {
-        return capacity;
     }
 
     public int availableSpacesRate() {

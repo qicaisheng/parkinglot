@@ -14,6 +14,21 @@ public abstract class ParkingAgent implements ParkingResource {
         this.managedParkingLots = parkingLots;
     }
 
+    @Override
+    public String getShortName() {
+        return "B";
+    }
+
+    @Override
+    public int getAvailableSpaces() {
+        return managedParkingLots.stream().mapToInt(ParkingLot::getAvailableSpaces).sum();
+    }
+
+    @Override
+    public int getCapacity() {
+        return managedParkingLots.stream().mapToInt(ParkingLot::getCapacity).sum();
+    }
+
     public void park(Car car) throws ParkingLotFullException {
         selectParkingLot().park(car);
     }
@@ -31,19 +46,4 @@ public abstract class ParkingAgent implements ParkingResource {
     }
 
     abstract ParkingLot selectParkingLot();
-
-    @Override
-    public String getShortName() {
-        return "B";
-    }
-
-    @Override
-    public int getAvailableSpaces() {
-        return managedParkingLots.stream().mapToInt(ParkingLot::availableSpaces).sum();
-    }
-
-    @Override
-    public int getCapacity() {
-        return managedParkingLots.stream().mapToInt(ParkingLot::getCapacity).sum();
-    }
 }

@@ -28,7 +28,7 @@ public class ParkingManager implements ParkingResource {
 
     @Override
     public int getAvailableSpaces() {
-        return allManagedParkingLots().stream().mapToInt(ParkingLot::availableSpaces).sum();
+        return allManagedParkingLots().stream().mapToInt(ParkingLot::getAvailableSpaces).sum();
     }
 
     @Override

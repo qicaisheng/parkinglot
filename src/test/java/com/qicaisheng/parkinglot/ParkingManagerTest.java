@@ -45,7 +45,7 @@ public class ParkingManagerTest {
 
         parkingManager.park(car, parkingBoy);
 
-        Assert.assertEquals(1, parkingLot2.availableSpaces());
+        Assert.assertEquals(1, parkingLot2.getAvailableSpaces());
         Assert.assertEquals(car, parkingManager.pick(car, parkingBoy));
     }
 

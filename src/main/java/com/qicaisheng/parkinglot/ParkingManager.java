@@ -3,7 +3,7 @@ package com.qicaisheng.parkinglot;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ParkingManager implements ParkingResource {
+public class ParkingManager extends ParkingResource {
     
     private List<ParkingAgent> managedParkingBoys = new ArrayList<>();
 

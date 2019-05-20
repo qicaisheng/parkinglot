@@ -3,7 +3,7 @@ package com.qicaisheng.parkinglot;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ParkingManager {
+public class ParkingManager implements ParkingResource {
     
     private List<ParkingAgent> managedParkingBoys = new ArrayList<>();
 
@@ -19,6 +19,21 @@ public class ParkingManager {
     
     public ParkingManager(List<ParkingLot> parkingLots) {
         managedParkingLots = parkingLots;
+    }
+
+    @Override
+    public String getShortName() {
+        return "M";
+    }
+
+    @Override
+    public int getAvailableSpaces() {
+        return availableParkingSpaces();
+    }
+
+    @Override
+    public int getCapacity() {
+        return parkingCapacity();
     }
 
     public void manager(List<ParkingAgent> parkingBoys) {

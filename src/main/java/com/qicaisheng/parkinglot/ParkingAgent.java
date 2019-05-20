@@ -2,7 +2,7 @@ package com.qicaisheng.parkinglot;
 
 import java.util.List;
 
-public abstract class ParkingAgent {
+public abstract class ParkingAgent implements ParkingResource {
 
     public List<ParkingLot> getManagedParkingLots() {
         return managedParkingLots;
@@ -40,5 +40,18 @@ public abstract class ParkingAgent {
 
     abstract ParkingLot selectParkingLot();
 
-    ;
+    @Override
+    public String getShortName() {
+        return "B";
+    }
+
+    @Override
+    public int getAvailableSpaces() {
+        return availableParkingSpaces();
+    }
+
+    @Override
+    public int getCapacity() {
+        return parkingCapacity();
+    }
 }

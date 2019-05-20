@@ -3,7 +3,7 @@ package com.qicaisheng.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingLot {
+public class ParkingLot implements ParkingResource {
     
     private int capacity;
     
@@ -27,7 +27,17 @@ public class ParkingLot {
         parkedCar.remove(car);
         return car;
     }
-    
+
+    @Override
+    public String getShortName() {
+        return "P";
+    }
+
+    @Override
+    public int getAvailableSpaces() {
+        return availableSpaces();
+    }
+
     public boolean haveTheCar(Car car) {
         return parkedCar.contains(car);
     }
@@ -40,6 +50,7 @@ public class ParkingLot {
         return capacity - parkedCar.size();
     }
     
+    @Override
     public int getCapacity() {
         return capacity;
     }

@@ -25,15 +25,7 @@ public abstract class ParkingAgent implements ParkingResource {
         }
         return parkingLot.pick(car);
     }
-    
-    protected int availableParkingSpaces() {
-        return managedParkingLots.stream().mapToInt(ParkingLot::availableSpaces).sum();
-    }
 
-    protected int parkingCapacity() {
-        return managedParkingLots.stream().mapToInt(ParkingLot::getCapacity).sum();
-    }
-    
     private ParkingLot selectParkingLotWithTheCar(Car car) {
         return managedParkingLots.stream().filter(parkingLot -> parkingLot.haveTheCar(car)).findFirst().orElse(null);
     }
@@ -47,11 +39,11 @@ public abstract class ParkingAgent implements ParkingResource {
 
     @Override
     public int getAvailableSpaces() {
-        return availableParkingSpaces();
+        return managedParkingLots.stream().mapToInt(ParkingLot::availableSpaces).sum();
     }
 
     @Override
     public int getCapacity() {
-        return parkingCapacity();
+        return managedParkingLots.stream().mapToInt(ParkingLot::getCapacity).sum();
     }
 }

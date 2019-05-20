@@ -28,12 +28,12 @@ public class ParkingManager implements ParkingResource {
 
     @Override
     public int getAvailableSpaces() {
-        return availableParkingSpaces();
+        return allManagedParkingLots().stream().mapToInt(ParkingLot::availableSpaces).sum();
     }
 
     @Override
     public int getCapacity() {
-        return parkingCapacity();
+        return allManagedParkingLots().stream().mapToInt(ParkingLot::getCapacity).sum();
     }
 
     public void manager(List<ParkingAgent> parkingBoys) {
@@ -67,14 +67,6 @@ public class ParkingManager implements ParkingResource {
             throw new WithoutManagedTheParkingBoyException();
         }
         return parkingBoy.pick(car);
-    }
-    
-    public int availableParkingSpaces() {
-        return allManagedParkingLots().stream().mapToInt(ParkingLot::availableSpaces).sum();
-    }
-    
-    public int parkingCapacity() {
-        return allManagedParkingLots().stream().mapToInt(ParkingLot::getCapacity).sum();
     }
 
     private List<ParkingLot> allManagedParkingLots() {

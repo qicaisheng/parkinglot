@@ -35,7 +35,7 @@ public class ParkingLot implements ParkingResource {
 
     @Override
     public int getAvailableSpaces() {
-        return availableSpaces();
+        return capacity - parkedCar.size();
     }
 
     public boolean haveTheCar(Car car) {

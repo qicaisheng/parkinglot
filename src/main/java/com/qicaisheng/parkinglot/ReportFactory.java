@@ -17,7 +17,7 @@ public class ReportFactory {
     }
 
     public static String getMarkdownReport(ParkingManager parkingManager) {
-        String reportSelf = "# " + "M " + parkingManager.availableParkingSpaces() + " " + parkingManager.parkingCapacity() + "\n";
+        String reportSelf = getSelfReportData("M", parkingManager.availableParkingSpaces(), parkingManager.parkingCapacity(), "# ");
         String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> "#" + getMarkdownReport(parkingLot)).collect(Collectors.joining());
         String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "#" + getMarkdownReport(parkingAgent)).collect(Collectors.joining());
 

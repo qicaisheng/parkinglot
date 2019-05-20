@@ -5,19 +5,20 @@ import java.util.stream.Collectors;
 public class ReportFactory {
 
     public static String getTextReport(ParkingManager parkingManager) {
-        String reportSelf = getSelfReportData("M", parkingManager.availableParkingSpaces(), parkingManager.parkingCapacity(), "");
+        String reportSelf = getSelfReportData(parkingManager, "");
         String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> "\t" + getTextReport(parkingLot)).collect(Collectors.joining());
         String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "\t" + getTextReport(parkingAgent)).collect(Collectors.joining());
 
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
 
-    private static String getSelfReportData(String shortName, int availableSpaces, int capacity, String prefix) {
-        return prefix + shortName + " " + availableSpaces + " " + capacity + "\n";
+    private static String getSelfReportData(ParkingResource parkingResource, String prefix) {
+        return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
     }
 
+
     public static String getMarkdownReport(ParkingManager parkingManager) {
-        String reportSelf = getSelfReportData("M", parkingManager.availableParkingSpaces(), parkingManager.parkingCapacity(), "# ");
+        String reportSelf = getSelfReportData(parkingManager, "# ");
         String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> "#" + getMarkdownReport(parkingLot)).collect(Collectors.joining());
         String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "#" + getMarkdownReport(parkingAgent)).collect(Collectors.joining());
 
@@ -25,23 +26,23 @@ public class ReportFactory {
     }
 
     private static String getTextReport(ParkingAgent parkingAgent) {
-        String reportSelf = getSelfReportData("B", parkingAgent.availableParkingSpaces(), parkingAgent.parkingCapacity(), "");
+        String reportSelf = getSelfReportData(parkingAgent, "");
         String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> "\t\t" + getTextReport(parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;
     }
 
     private static String getTextReport(ParkingLot parkingLot) {
-        return getSelfReportData("P", parkingLot.availableSpaces(), parkingLot.getCapacity(), "");
+        return getSelfReportData(parkingLot, "");
     }
 
     private static String getMarkdownReport(ParkingAgent parkingAgent) {
-        String reportSelf = getSelfReportData("B", parkingAgent.availableParkingSpaces(), parkingAgent.parkingCapacity(), "# ");
+        String reportSelf = getSelfReportData(parkingAgent, "# ");
         String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> "### " + getTextReport(parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;
     }
 
     private static String getMarkdownReport(ParkingLot parkingLot) {
-        return getSelfReportData("P", parkingLot.availableSpaces(), parkingLot.getCapacity(), "# ");
+        return getSelfReportData(parkingLot, "# ");
     }
 
 }

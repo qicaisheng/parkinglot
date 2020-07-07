@@ -9,11 +9,11 @@ public class ParkingDirector {
     }
 
     public String getTextReport() {
-        return TextReportFactory.getTextReport(managedParkingManager);
+        return new TextReportFactory().getTextReport(managedParkingManager);
     }
 
     public String getMarkdownReport() {
-        return MarkdownReportFactory.getMarkdownReport(managedParkingManager);
+        return new MarkdownReportFactory().getMarkdownReport(managedParkingManager);
     }
 
 }

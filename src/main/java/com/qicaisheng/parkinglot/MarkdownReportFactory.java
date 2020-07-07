@@ -2,7 +2,7 @@ package com.qicaisheng.parkinglot;
 
 import java.util.stream.Collectors;
 
-public class MarkdownReportFactory {
+public class MarkdownReportFactory extends ReportFactory {
 
     public static String getMarkdownReport(ParkingManager parkingManager) {
         String reportSelf = getSelfReportData("# ", parkingManager);
@@ -18,7 +18,4 @@ public class MarkdownReportFactory {
         return reportSelf + reportMangedParkingLots;
     }
 
-    public static String getSelfReportData(String prefix, ParkingResource parkingResource) {
-        return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
-    }
 }

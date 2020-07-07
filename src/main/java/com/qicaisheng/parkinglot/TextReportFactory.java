@@ -2,7 +2,7 @@ package com.qicaisheng.parkinglot;
 
 import java.util.stream.Collectors;
 
-public class TextReportFactory {
+public class TextReportFactory extends ReportFactory {
 
     public static String getTextReport(ParkingManager parkingManager) {
         String reportSelf = getSelfReportData("", parkingManager);
@@ -18,7 +18,4 @@ public class TextReportFactory {
         return reportSelf + reportMangedParkingLots;
     }
 
-    public static String getSelfReportData(String prefix, ParkingResource parkingResource) {
-        return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
-    }
 }

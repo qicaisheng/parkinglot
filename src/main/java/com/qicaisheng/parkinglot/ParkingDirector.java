@@ -9,12 +9,6 @@ public class ParkingDirector {
     }
 
     public String report(ReportFactory reportFactory) {
-        if (reportFactory instanceof TextReportFactory) {
-            return reportFactory.report(managedParkingManager);
-        }
-        if (reportFactory instanceof MarkdownReportFactory) {
-            return reportFactory.report(managedParkingManager);
-        }
-        return null;
+        return reportFactory.report(managedParkingManager);
     }
 }

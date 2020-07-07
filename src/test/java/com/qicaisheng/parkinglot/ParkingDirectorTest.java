@@ -20,7 +20,21 @@ public class ParkingDirectorTest {
         
         Assert.assertEquals("M 2 3\n\tP 1 1\n\tP 1 2\n", report);
     }
-    
+
+    @Test
+    public void should_report_manager_managed_parking_lots_with_report_method() {
+        ParkingLot parkingLot1 = new ParkingLot(1);
+        ParkingLot parkingLot2 = new ParkingLot(2);
+        parkingLot2.park(new Car());
+        ParkingManager parkingManager = new ParkingManager(Arrays.asList(parkingLot1, parkingLot2));
+        ParkingDirector parkingDirector = new ParkingDirector();
+        parkingDirector.manage(parkingManager);
+
+        String report = parkingDirector.report(new TextReportFactory());
+
+        Assert.assertEquals("M 2 3\n\tP 1 1\n\tP 1 2\n", report);
+    }
+
     @Test
     public void should_report_manager_managed_parking_lots_and_parking_boys() {
         ParkingLot parkingLot1 = new ParkingLot(1);

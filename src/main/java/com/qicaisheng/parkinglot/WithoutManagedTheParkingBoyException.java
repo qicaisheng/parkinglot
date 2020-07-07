@@ -1,4 +1,4 @@
 package com.qicaisheng.parkinglot;
 
-public class WithoutManagedTheParkingBoyException extends Throwable {
+public class WithoutManagedTheParkingBoyException extends RuntimeException {
 }

@@ -29,11 +29,11 @@ public abstract class ParkingAgent implements ParkingResource {
         return managedParkingLots.stream().mapToInt(ParkingLot::getCapacity).sum();
     }
 
-    public void park(Car car) throws ParkingLotFullException {
+    public void park(Car car) {
         selectParkingLot().park(car);
     }
 
-    public Car pick(Car car) throws ParkingLotWithoutTheCar {
+    public Car pick(Car car) {
         ParkingLot parkingLot = selectParkingLotWithTheCar(car);
         if (parkingLot == null) {
             throw new ParkingLotWithoutTheCar();

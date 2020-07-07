@@ -40,14 +40,14 @@ public class ParkingManager implements ParkingResource {
         managedParkingBoys = parkingBoys;
     }
 
-    public void park(Car car, ParkingLot parkingLot) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
+    public void park(Car car, ParkingLot parkingLot) {
         if (!managedParkingLots.contains(parkingLot)) {
             throw new WithoutManagedTheParkingBoyException();
         }
         parkingLot.park(car);
     }
 
-    public Car pick(Car car, ParkingLot parkingLot) throws ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
+    public Car pick(Car car, ParkingLot parkingLot) {
         if (!managedParkingLots.contains(parkingLot)) {
             throw new WithoutManagedTheParkingBoyException();
         }
@@ -55,14 +55,14 @@ public class ParkingManager implements ParkingResource {
     }
 
 
-    public void park(Car car, ParkingAgent parkingBoy) throws ParkingLotFullException, WithoutManagedTheParkingBoyException {
+    public void park(Car car, ParkingAgent parkingBoy) {
         if (!managedParkingBoys.contains(parkingBoy)) {
             throw new WithoutManagedTheParkingBoyException();
         }
         parkingBoy.park(car);
     }
 
-    public Car pick(Car car, ParkingAgent parkingBoy) throws ParkingLotWithoutTheCar, WithoutManagedTheParkingBoyException {
+    public Car pick(Car car, ParkingAgent parkingBoy) {
         if (!managedParkingBoys.contains(parkingBoy)) {
             throw new WithoutManagedTheParkingBoyException();
         }

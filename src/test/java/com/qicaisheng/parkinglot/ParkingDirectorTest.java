@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ParkingDirectorTest {
 
     @Test
-    public void should_report_manager_managed_parking_lots() throws ParkingLotFullException {
+    public void should_report_manager_managed_parking_lots() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
         parkingLot2.park(new Car());
@@ -22,7 +22,7 @@ public class ParkingDirectorTest {
     }
     
     @Test
-    public void should_report_manager_managed_parking_lots_and_parking_boys() throws ParkingLotFullException {
+    public void should_report_manager_managed_parking_lots_and_parking_boys() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
         parkingLot2.park(new Car());
@@ -41,7 +41,7 @@ public class ParkingDirectorTest {
     }
 
     @Test
-    public void should_get_markdown_report_with_manager_managed_parking_lots_and_parking_boys() throws ParkingLotFullException {
+    public void should_get_markdown_report_with_manager_managed_parking_lots_and_parking_boys() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(2);
         parkingLot2.park(new Car());

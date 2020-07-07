@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class ParkingBoyTest {
     
     @Test
-    public void should_be_picked_up_from_managed_parking_lot_when_park_boy_park_card() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+    public void should_be_picked_up_from_managed_parking_lot_when_park_boy_park_card() {
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
@@ -20,7 +20,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_be_picked_up_from_parking_boy_when_park_boy_park_card() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+    public void should_be_picked_up_from_parking_boy_when_park_boy_park_card() {
         ParkingLot parkingLot = new ParkingLot(2);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
@@ -32,7 +32,7 @@ public class ParkingBoyTest {
     }
 
     @Test(expected = ParkingLotWithoutTheCar.class)
-    public void should_not_be_picked_up_from_parking_boy_when_the_parked_car_has_been_picked_from_managed_parking_lot() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+    public void should_not_be_picked_up_from_parking_boy_when_the_parked_car_has_been_picked_from_managed_parking_lot() {
         ParkingLot parkingLot = new ParkingLot(2);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
@@ -44,7 +44,7 @@ public class ParkingBoyTest {
     }
 
     @Test(expected = ParkingLotWithoutTheCar.class)
-    public void should_not_be_picked_up_from_parking_boy_again_when_the_parked_car_has_been_picked_from_parking_boy() throws ParkingLotWithoutTheCar, ParkingLotFullException {
+    public void should_not_be_picked_up_from_parking_boy_again_when_the_parked_car_has_been_picked_from_parking_boy() {
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
@@ -56,7 +56,7 @@ public class ParkingBoyTest {
     }
 
     @Test(expected = ParkingLotFullException.class)
-    public void should_not_be_parked_from_parking_boy_when_the_managed_parking_lot_is_full() throws ParkingLotFullException {
+    public void should_not_be_parked_from_parking_boy_when_the_managed_parking_lot_is_full() {
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot));
         Car car = new Car();
@@ -67,7 +67,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_be_picked_from_two_parking_lots_when_parking_boy_park_two_cars_in_order() throws ParkingLotFullException, ParkingLotWithoutTheCar {
+    public void should_be_picked_from_two_parking_lots_when_parking_boy_park_two_cars_in_order() {
         ParkingLot parkingLot1 = new ParkingLot(1);
         ParkingLot parkingLot2 = new ParkingLot(1);
         ParkingAgent parkingBoy = new ParkingBoy(Arrays.asList(parkingLot1, parkingLot2));

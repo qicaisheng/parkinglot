@@ -4,17 +4,17 @@ import java.util.stream.Collectors;
 
 public class MarkdownReportFactory extends ReportFactory {
 
-    public String getMarkdownReport(ParkingManager parkingManager) {
-        String reportSelf = getSelfReportData("# ", parkingManager);
-        String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> getSelfReportData("## ", parkingLot)).collect(Collectors.joining());
-        String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "#" + getMarkdownReport(parkingAgent)).collect(Collectors.joining());
+    public String report(ParkingManager parkingManager) {
+        String reportSelf = report("# ", parkingManager);
+        String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> report("## ", parkingLot)).collect(Collectors.joining());
+        String reportSelfManagedParkingAgents = parkingManager.getManagedParkingBoys().stream().map(parkingAgent -> "#" + report(parkingAgent)).collect(Collectors.joining());
 
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
     
-    private String getMarkdownReport(ParkingAgent parkingAgent) {
-        String reportSelf = getSelfReportData("# ", parkingAgent);
-        String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> getSelfReportData("### ", parkingLot)).collect(Collectors.joining());
+    private String report(ParkingAgent parkingAgent) {
+        String reportSelf = report("# ", parkingAgent);
+        String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> report("### ", parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;
     }
 

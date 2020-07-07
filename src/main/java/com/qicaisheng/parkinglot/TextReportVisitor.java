@@ -2,7 +2,7 @@ package com.qicaisheng.parkinglot;
 
 import java.util.stream.Collectors;
 
-public class TextReportFactory extends ReportFactory {
+public class TextReportVisitor extends ReportVisitor {
 
     @Override
     public String report(ParkingManager parkingManager) {

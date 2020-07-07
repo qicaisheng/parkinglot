@@ -84,7 +84,7 @@ public class ParkingManager implements ParkingResource {
         return new ArrayList<>(parkingLots);
     }
 
-    public String report(ReportFactory reportFactory) {
-        return reportFactory.report(this);
+    public String report(ReportVisitor reportVisitor) {
+        return reportVisitor.report(this);
     }
 }

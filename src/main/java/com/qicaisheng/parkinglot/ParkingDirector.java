@@ -16,7 +16,13 @@ public class ParkingDirector {
         return new MarkdownReportFactory().report(managedParkingManager);
     }
 
-    public String report(TextReportFactory textReportFactory) {
-        return getTextReport();
+    public String report(ReportFactory reportFactory) {
+        if (reportFactory instanceof TextReportFactory) {
+            return getTextReport();
+        }
+        if (reportFactory instanceof MarkdownReportFactory) {
+            return getMarkdownReport();
+        }
+        return null;
     }
 }

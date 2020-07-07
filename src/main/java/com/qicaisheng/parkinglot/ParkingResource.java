@@ -1,11 +1,11 @@
 package com.qicaisheng.parkinglot;
 
-public abstract class ParkingResource {
+public interface ParkingResource {
 
-    public abstract String getShortName();
+    String getShortName();
 
-    public abstract int getAvailableSpaces();
+    int getAvailableSpaces();
 
-    public abstract int getCapacity();
+    int getCapacity();
 
 }

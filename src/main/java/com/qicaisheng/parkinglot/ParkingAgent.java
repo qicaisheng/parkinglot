@@ -2,7 +2,7 @@ package com.qicaisheng.parkinglot;
 
 import java.util.List;
 
-public abstract class ParkingAgent extends ParkingResource {
+public abstract class ParkingAgent implements ParkingResource {
 
     public List<ParkingLot> getManagedParkingLots() {
         return managedParkingLots;

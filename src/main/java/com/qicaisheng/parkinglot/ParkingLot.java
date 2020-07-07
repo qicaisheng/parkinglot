@@ -3,7 +3,7 @@ package com.qicaisheng.parkinglot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingLot extends ParkingResource {
+public class ParkingLot implements ParkingResource {
     
     private int capacity;
     

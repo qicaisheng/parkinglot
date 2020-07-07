@@ -6,4 +6,6 @@ public abstract class ReportFactory {
     }
 
     public abstract String report(ParkingManager parkingManager);
+
+    public abstract String report(ParkingAgent parkingAgent);
 }

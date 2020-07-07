@@ -13,7 +13,8 @@ public class TextReportFactory extends ReportFactory {
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
     
-    private String report(ParkingAgent parkingAgent) {
+    @Override
+    public String report(ParkingAgent parkingAgent) {
         String reportSelf = report("", parkingAgent);
         String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> report("\t\t", parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;

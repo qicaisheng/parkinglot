@@ -15,8 +15,8 @@ public class ParkingDirectorTest {
         ParkingManager parkingManager = new ParkingManager(Arrays.asList(parkingLot1, parkingLot2));
         ParkingDirector parkingDirector = new ParkingDirector();
         parkingDirector.manage(parkingManager);
-        
-        String report = parkingDirector.getTextReport();
+
+        String report = parkingDirector.report(new TextReportFactory());
         
         Assert.assertEquals("M 2 3\n\tP 1 1\n\tP 1 2\n", report);
     }
@@ -49,7 +49,7 @@ public class ParkingDirectorTest {
         ParkingDirector parkingDirector = new ParkingDirector();
         parkingDirector.manage(parkingManager);
 
-        String report = parkingDirector.getTextReport();
+        String report = parkingDirector.report(new TextReportFactory());
 
         Assert.assertEquals("M 1 3\n\tP 0 1\n\tP 1 2\n\tB 0 1\n\t\tP 0 1\n", report);
     }
@@ -68,7 +68,7 @@ public class ParkingDirectorTest {
         ParkingDirector parkingDirector = new ParkingDirector();
         parkingDirector.manage(parkingManager);
 
-        String report = parkingDirector.getMarkdownReport();
+        String report = parkingDirector.report(new MarkdownReportFactory());
 
         Assert.assertEquals("# M 1 3\n## P 0 1\n## P 1 2\n## B 0 1\n### P 0 1\n", report);
     }

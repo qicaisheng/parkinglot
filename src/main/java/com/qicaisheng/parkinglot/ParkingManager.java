@@ -85,6 +85,6 @@ public class ParkingManager implements ParkingResource {
     }
 
     public String report(ReportVisitor reportVisitor) {
-        return reportVisitor.report(this);
+        return reportVisitor.visit(this);
     }
 }

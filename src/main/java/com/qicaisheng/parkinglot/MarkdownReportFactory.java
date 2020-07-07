@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 public class MarkdownReportFactory extends ReportFactory {
 
+    @Override
     public String report(ParkingManager parkingManager) {
         String reportSelf = report("# ", parkingManager);
         String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> report("## ", parkingLot)).collect(Collectors.joining());

@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 public class TextReportFactory extends ReportFactory {
 
+    @Override
     public String report(ParkingManager parkingManager) {
         String reportSelf = report("", parkingManager);
         String reportSelfManagedParkingLots = parkingManager.getManagedParkingLots().stream().map(parkingLot -> report("\t", parkingLot)).collect(Collectors.joining());

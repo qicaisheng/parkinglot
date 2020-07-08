@@ -21,5 +21,7 @@ public abstract class ReportVisitor {
 
     public abstract String visit(ParkingAgent parkingAgent);
 
+    public abstract String visitSelf(ParkingAgent parkingAgent);
+
     public abstract String visitSelfInParkingAgent(ParkingLot parkingLot);
 }

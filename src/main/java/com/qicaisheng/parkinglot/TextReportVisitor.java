@@ -21,7 +21,8 @@ public class TextReportVisitor extends ReportVisitor {
         return reportSelf + reportMangedParkingLots;
     }
 
-    private String visitSelf(ParkingAgent parkingAgent) {
+    @Override
+    public String visitSelf(ParkingAgent parkingAgent) {
         return visit("\t", parkingAgent);
     }
 

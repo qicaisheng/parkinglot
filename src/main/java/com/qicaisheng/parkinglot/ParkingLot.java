@@ -56,10 +56,10 @@ public class ParkingLot implements ParkingResource {
     }
 
     public String acceptFromParkingManager(ReportVisitor reportVisitor) {
-        return reportVisitor.visitSelfInParkingManager(this);
+        return reportVisitor.visitSelf(this);
     }
 
     public String acceptFromParkingAgent(ReportVisitor reportVisitor) {
-        return reportVisitor.visitSelfInParkingAgent(this);
+        return reportVisitor.visitSelf(this);
     }
 }

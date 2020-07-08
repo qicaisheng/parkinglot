@@ -7,5 +7,11 @@ public abstract class ReportVisitor {
 
     public abstract String visit(ParkingManager parkingManager);
 
+    public abstract String visitSelfInParkingManager(ParkingLot parkingLot);
+
+    public abstract String visitSelf(ParkingManager parkingManager);
+
     public abstract String visit(ParkingAgent parkingAgent);
+
+    public abstract String visitSelfInParkingAgent(ParkingLot parkingLot);
 }

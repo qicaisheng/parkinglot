@@ -13,11 +13,13 @@ public class MarkdownReportVisitor extends ReportVisitor {
         return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
 
-    private String visitSelfInParkingManager(ParkingLot parkingLot) {
+    @Override
+    public String visitSelfInParkingManager(ParkingLot parkingLot) {
         return visit("## ", parkingLot);
     }
 
-    private String visitSelf(ParkingManager parkingManager) {
+    @Override
+    public String visitSelf(ParkingManager parkingManager) {
         return visit("# ", parkingManager);
     }
 
@@ -28,7 +30,8 @@ public class MarkdownReportVisitor extends ReportVisitor {
         return reportSelf + reportMangedParkingLots;
     }
 
-    private String visitSelfInParkingAgent(ParkingLot parkingLot) {
+    @Override
+    public String visitSelfInParkingAgent(ParkingLot parkingLot) {
         return visit("### ", parkingLot);
     }
 

@@ -48,6 +48,7 @@ public abstract class ParkingAgent implements ParkingResource {
 
     abstract ParkingLot selectParkingLot();
 
+    @Override
     public String accept(ReportVisitor reportVisitor) {
         reportVisitor.setFrom("ParkingAgent");
         String reportSelf = reportVisitor.visit(this);

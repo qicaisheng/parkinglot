@@ -1,6 +1,6 @@
 package com.qicaisheng.parkinglot;
 
-public interface ParkingResource {
+public interface ParkingResource extends ReportElement {
 
     String getShortName();
 

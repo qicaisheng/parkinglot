@@ -84,6 +84,7 @@ public class ParkingManager implements ParkingResource {
         return new ArrayList<>(parkingLots);
     }
 
+    @Override
     public String accept(ReportVisitor reportVisitor) {
         reportVisitor.setFrom("ParkingManager");
         String reportSelf = reportVisitor.visit(this);

@@ -16,9 +16,13 @@ public class MarkdownReportVisitor extends ReportVisitor {
 
     @Override
     public String visit(ParkingAgent parkingAgent) {
-        String reportSelf = visit("## ", parkingAgent);
+        String reportSelf = visitSelf(parkingAgent);
         String reportMangedParkingLots = parkingAgent.getManagedParkingLots().stream().map(parkingLot -> visitSelfInParkingAgent(parkingLot)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;
+    }
+
+    private String visitSelf(ParkingAgent parkingAgent) {
+        return visit("## ", parkingAgent);
     }
 
     @Override

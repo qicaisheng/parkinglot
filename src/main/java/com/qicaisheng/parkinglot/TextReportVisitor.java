@@ -5,22 +5,22 @@ import java.util.stream.Collectors;
 public class TextReportVisitor extends ReportVisitor {
     
     @Override
-    public String visitSelfInParkingManager(ParkingLot parkingLot) {
+    public String visitFromParkingManager(ParkingLot parkingLot) {
         return visit("\t", parkingLot);
     }
 
     @Override
-    public String visitSelf(ParkingManager parkingManager) {
+    public String visit(ParkingManager parkingManager) {
         return visit("", parkingManager);
     }
     
     @Override
-    public String visitSelf(ParkingAgent parkingAgent) {
+    public String visit(ParkingAgent parkingAgent) {
         return visit("\t", parkingAgent);
     }
 
     @Override
-    public String visitSelfInParkingAgent(ParkingLot parkingLot) {
+    public String visitFromParkingAgent(ParkingLot parkingLot) {
         return visit("\t\t", parkingLot);
     }
 

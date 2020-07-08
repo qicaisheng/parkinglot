@@ -56,6 +56,6 @@ public class ParkingLot implements ParkingResource {
     }
     
     public String accept(ReportVisitor reportVisitor) {
-        return reportVisitor.visitSelf(this);
+        return reportVisitor.visit(this);
     }
 }

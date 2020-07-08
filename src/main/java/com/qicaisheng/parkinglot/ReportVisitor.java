@@ -7,19 +7,19 @@ public abstract class ReportVisitor {
         return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
     }
 
-    public abstract String visitSelfInParkingManager(ParkingLot parkingLot);
+    public abstract String visitFromParkingManager(ParkingLot parkingLot);
 
-    public abstract String visitSelf(ParkingManager parkingManager);
+    public abstract String visit(ParkingManager parkingManager);
     
-    public abstract String visitSelf(ParkingAgent parkingAgent);
+    public abstract String visit(ParkingAgent parkingAgent);
 
-    public abstract String visitSelfInParkingAgent(ParkingLot parkingLot);
+    public abstract String visitFromParkingAgent(ParkingLot parkingLot);
 
-    public String visitSelf(ParkingLot parkingLot) {
+    public String visit(ParkingLot parkingLot) {
         if (getFrom().equals("ParkingManager")) {
-            return visitSelfInParkingManager(parkingLot);
+            return visitFromParkingManager(parkingLot);
         } else {
-            return visitSelfInParkingAgent(parkingLot);
+            return visitFromParkingAgent(parkingLot);
         }
     }
     

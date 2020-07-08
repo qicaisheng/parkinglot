@@ -49,6 +49,7 @@ public abstract class ParkingAgent implements ParkingResource {
     abstract ParkingLot selectParkingLot();
 
     public String accept(ReportVisitor reportVisitor) {
+        reportVisitor.setFrom("ParkingAgent");
         String reportSelf = reportVisitor.visitSelf(this);
         String reportMangedParkingLots = getManagedParkingLots().stream().map(parkingLot -> parkingLot.acceptFromParkingAgent(reportVisitor)).collect(Collectors.joining());
         return reportSelf + reportMangedParkingLots;

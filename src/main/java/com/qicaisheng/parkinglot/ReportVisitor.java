@@ -1,6 +1,8 @@
 package com.qicaisheng.parkinglot;
 
 public abstract class ReportVisitor {
+    private String from;
+
     public String visit(String prefix, ParkingResource parkingResource) {
         return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
     }
@@ -12,4 +14,12 @@ public abstract class ReportVisitor {
     public abstract String visitSelf(ParkingAgent parkingAgent);
 
     public abstract String visitSelfInParkingAgent(ParkingLot parkingLot);
+
+    public void setFrom(String from) {
+        this.from = from;
+    };
+
+    public String getFrom() {
+        return from;
+    }
 }

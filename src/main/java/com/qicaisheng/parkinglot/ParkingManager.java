@@ -85,6 +85,10 @@ public class ParkingManager implements ParkingResource {
     }
 
     public String report(ReportVisitor reportVisitor) {
-        return reportVisitor.visit(this);
+        String reportSelf = reportVisitor.visitSelf(this);
+        String reportSelfManagedParkingLots = getManagedParkingLots().stream().map(parkingLot -> reportVisitor.visitSelfInParkingManager(parkingLot)).collect(Collectors.joining());
+        String reportSelfManagedParkingAgents = getManagedParkingBoys().stream().map(reportVisitor::visit).collect(Collectors.joining());
+
+        return reportSelf + reportSelfManagedParkingLots + reportSelfManagedParkingAgents;
     }
 }

@@ -55,4 +55,7 @@ public class ParkingLot implements ParkingResource {
         return (capacity - parkedCar.size()) / capacity;
     }
 
+    public String acceptFromParkingManager(ReportVisitor reportVisitor) {
+        return reportVisitor.visitSelfInParkingManager(this);
+    }
 }

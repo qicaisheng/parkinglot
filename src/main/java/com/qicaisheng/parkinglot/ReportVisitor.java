@@ -15,6 +15,14 @@ public abstract class ReportVisitor {
 
     public abstract String visitSelfInParkingAgent(ParkingLot parkingLot);
 
+    public String visitSelf(ParkingLot parkingLot) {
+        if (getFrom().equals("ParkingManager")) {
+            return visitSelfInParkingManager(parkingLot);
+        } else {
+            return visitSelfInParkingAgent(parkingLot);
+        }
+    }
+    
     public void setFrom(String from) {
         this.from = from;
     };

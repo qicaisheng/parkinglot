@@ -46,4 +46,8 @@ public abstract class ParkingAgent implements ParkingResource {
     }
 
     abstract ParkingLot selectParkingLot();
+
+    public String accept(ReportVisitor reportVisitor) {
+        return reportVisitor.visit(this);
+    }
 }

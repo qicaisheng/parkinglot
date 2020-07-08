@@ -1,6 +1,7 @@
 package com.qicaisheng.parkinglot;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public abstract class ParkingAgent implements ParkingResource {
 
@@ -48,6 +49,8 @@ public abstract class ParkingAgent implements ParkingResource {
     abstract ParkingLot selectParkingLot();
 
     public String accept(ReportVisitor reportVisitor) {
-        return reportVisitor.visit(this);
+        String reportSelf = reportVisitor.visitSelf(this);
+        String reportMangedParkingLots = getManagedParkingLots().stream().map(parkingLot -> reportVisitor.visitSelfInParkingAgent(parkingLot)).collect(Collectors.joining());
+        return reportSelf + reportMangedParkingLots;
     }
 }

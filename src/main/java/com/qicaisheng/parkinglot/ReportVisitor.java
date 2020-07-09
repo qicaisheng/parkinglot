@@ -23,6 +23,10 @@ public abstract class ReportVisitor {
         }
     }
     
+    public String contentOf(ParkingResource parkingResource) {
+        return parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity();
+    }
+
     public void setFrom(String from) {
         this.from = from;
     }

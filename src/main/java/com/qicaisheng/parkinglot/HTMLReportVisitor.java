@@ -22,7 +22,11 @@ public class HTMLReportVisitor extends ReportVisitor {
     }
 
     public String visit(String block, ParkingResource parkingResource) {
-        return "<" + block + ">" + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "</" + block + ">";
+        return "<" + block + ">" + contentOf(parkingResource) + "</" + block + ">";
+    }
+
+    private String contentOf(ParkingResource parkingResource) {
+        return parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity();
     }
 
 }

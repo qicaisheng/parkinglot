@@ -4,7 +4,7 @@ public abstract class ReportVisitor {
     private String from;
 
     public String visit(String prefix, ParkingResource parkingResource) {
-        return prefix + parkingResource.getShortName() + " " + parkingResource.getAvailableSpaces() + " " + parkingResource.getCapacity() + "\n";
+        return prefix + contentOf(parkingResource) + "\n";
     }
 
     public abstract String visitFromParkingManager(ParkingLot parkingLot);

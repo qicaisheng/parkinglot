@@ -1,7 +1,5 @@
 package com.qicaisheng.parkinglot;
 
-import java.util.stream.Collectors;
-
 public class TextReportVisitor extends ReportVisitor {
     
     @Override
@@ -24,4 +22,7 @@ public class TextReportVisitor extends ReportVisitor {
         return visit("\t\t", parkingLot);
     }
 
+    public String visit(String prefix, ParkingResource parkingResource) {
+        return prefix + contentOf(parkingResource) + "\n";
+    }
 }

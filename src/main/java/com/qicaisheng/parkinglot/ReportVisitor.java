@@ -3,10 +3,6 @@ package com.qicaisheng.parkinglot;
 public abstract class ReportVisitor {
     private String from;
 
-    public String visit(String prefix, ParkingResource parkingResource) {
-        return prefix + contentOf(parkingResource) + "\n";
-    }
-
     public abstract String visitFromParkingManager(ParkingLot parkingLot);
 
     public abstract String visit(ParkingManager parkingManager);

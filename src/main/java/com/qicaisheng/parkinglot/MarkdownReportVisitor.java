@@ -22,4 +22,7 @@ public class MarkdownReportVisitor extends ReportVisitor {
         return visit("### ", parkingLot);
     }
 
+    public String visit(String prefix, ParkingResource parkingResource) {
+        return prefix + contentOf(parkingResource) + "\n";
+    }
 }

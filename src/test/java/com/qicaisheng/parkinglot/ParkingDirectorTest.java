@@ -75,6 +75,6 @@ public class ParkingDirectorTest {
 
         String report = parkingDirector.managedParkingManager.accept(new HTMLReportVisitor());
 
-        Assert.assertEquals("<h2>M 1 3</h2><h3>P 0 1</h3><h3>P 1 2</h3><h3>B 0 1</h3><div>P 0 1</div>", report);
+        Assert.assertEquals("<h2>M 1 3</h2><h3>P 0 1</h3><h3>P 1 2</h3><h3>B 0 1</h3><p>P 0 1</p>", report);
     }
 }

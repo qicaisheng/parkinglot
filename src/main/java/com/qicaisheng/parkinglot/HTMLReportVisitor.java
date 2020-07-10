@@ -18,7 +18,7 @@ public class HTMLReportVisitor extends ReportVisitor {
 
     @Override
     public String visitFromParkingAgent(ParkingLot parkingLot) {
-        return visit("div", parkingLot);
+        return visit("p", parkingLot);
     }
 
     public String visit(String block, ParkingResource parkingResource) {
